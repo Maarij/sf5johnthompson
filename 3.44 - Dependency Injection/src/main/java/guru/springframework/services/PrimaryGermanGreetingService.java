@@ -1,5 +1,7 @@
 package guru.springframework.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 @Profile("de")
 public class PrimaryGermanGreetingService implements GreetingService {
 
+    @Autowired
+    @Qualifier("greetingRepositoryImpl")
     private GreetingRepository greetingRepository;
 
     @Override
